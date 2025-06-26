@@ -1,1 +1,45 @@
-# JavaOOP
+P01_RhombusOfStars
+package P01_RhombusOfStars;
+
+import java.util.Scanner;
+
+public class RhombusOfStars {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int size = Integer.parseInt(scanner.nextLine());
+
+        //общ брой редове -> size * 2 - 1
+        //горната част на ромба от 1 до средния ред
+        // долната част на ромба от средния ред + 1 до последния ред size * 2 - 1
+        //принтираме горната част на ромба
+        printTopPart(size);
+
+        //преинтиране долната част на ромба
+        printDownPart(size);
+    }
+
+    private static void printDownPart(int size) {
+        for (int row = 1; row <= size - 1 ; row++) {
+            printRepeatingString(" ", row);
+            printRepeatingString("* ", size - row);
+            System.out.println();
+        }
+    }
+
+    private static void printTopPart(int size) {
+        for (int row = 1; row <= size; row++) {
+            printRepeatingString(" ", size - row);
+            printRepeatingString("* ", row);
+            System.out.println();
+
+            
+        }
+    }
+    private static void printRepeatingString(String string, int count){
+        for (int i = 1; i <= count ; i++) {
+            System.out.print(string);
+        }
+    }
+
+}
